@@ -1,6 +1,6 @@
 import { dehydrate, Hydrate } from "@tanstack/react-query";
 import getQueryClient from "../app/getQueryClient";
-import Posts from "../app/_components/header/Posts";
+import Posts from "../app/_components/Posts";
 import getProducts from "@/api/getProducts";
 import { queryKeys } from "./queryKeys";
 

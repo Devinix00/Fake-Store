@@ -1,5 +1,5 @@
-import Post from "./_components/header/Post";
-import Posts from "./_components/header/Posts";
+import Post from "./_components/Post";
+import Posts from "./_components/Posts";
 
 export default function Home() {
   return (
