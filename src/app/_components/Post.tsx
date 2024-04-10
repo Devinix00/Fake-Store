@@ -1,7 +1,7 @@
 "use client";
 
-import getIndividualProducts from "@/api/getIndividualProducts";
-import { queryKeys } from "@/react-query/queryKeys";
+import getIndividualProducts from "@/app/_api/getIndividualProducts";
+import { queryKeys } from "@/app/_react-query/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 
 function Post() {

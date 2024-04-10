@@ -1,7 +1,7 @@
 "use client";
 
-import getPosts from "@/api/getProducts";
-import { queryKeys } from "@/react-query/queryKeys";
+import getPosts from "@/app/_api/getProducts";
+import { queryKeys } from "@/app/_react-query/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 
 function Posts() {
