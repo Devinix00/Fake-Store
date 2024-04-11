@@ -28,6 +28,7 @@ const config: Config = {
       colors: {
         black: "#000000cc",
         red: "#FF005C",
+        blue: "#1677ff",
         "default-text": "#000000cc",
       },
       backgroundImage: {
