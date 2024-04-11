@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface UseIsSignedInReturn {
   isSignedIn: boolean;
@@ -14,7 +14,8 @@ const useIsSignedIn = create(
         set(() => ({ isSignedIn: authState })),
     }),
     {
-      name: "storage",
+      name: "auth-storage",
+      storage: createJSONStorage(() => sessionStorage),
     }
   )
 );
