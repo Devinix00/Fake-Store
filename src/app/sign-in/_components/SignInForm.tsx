@@ -45,7 +45,7 @@ function SignInForm() {
 
       <button
         type="submit"
-        className="w-[100%] h-12 bg-blue text-white rounded-lg mt-4"
+        className="w-[100%] h-12 bg-blueButton text-white rounded-lg mt-4"
       >
         {isPending ? <SignInLoading /> : <p>Sign In</p>}
       </button>
