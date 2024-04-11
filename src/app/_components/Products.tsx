@@ -4,6 +4,7 @@ import getPosts from "@/app/_api/getProducts";
 import { queryKeys } from "@/app/_react-query/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Link from "next/link";
 
 function Posts() {
   const { data } = useQuery({
@@ -27,7 +28,12 @@ function Posts() {
             alt={product.title}
           />
           <section className="flex flex-col gap-2 w-[100%]">
-            <p className="text-lg md:text-2xl font-bold">{product.title}</p>
+            <Link
+              href="/"
+              className="text-lg md:text-2xl font-bold hover:underline w-fit"
+            >
+              {product.title}
+            </Link>
             <p className="text-md md:text-xl font-medium">
               category: {product.category}
             </p>
