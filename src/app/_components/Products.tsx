@@ -34,9 +34,7 @@ function Posts() {
             >
               {product.title}
             </Link>
-            <p className="text-md md:text-xl font-medium">
-              category: {product.category}
-            </p>
+            <p className="text-md md:text-xl font-medium">{product.category}</p>
             <section className="flex gap-2 items-center">
               <p className="text-md md:text-xl font-extrabold">
                 ${product.price}
