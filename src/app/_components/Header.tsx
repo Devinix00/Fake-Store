@@ -1,7 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import { Menu } from "../../../public/images";
 import Link from "next/link";
+import HeaderRightSection from "./HeaderRightSection";
 
 function Header() {
   return (
@@ -10,18 +9,7 @@ function Header() {
         <Link href="/" className="text-white text-[18px]">
           Fake store
         </Link>
-
-        <Link
-          href="/sign-in"
-          className="text-white hidden md:block hover:underline"
-        >
-          Sign In
-        </Link>
-        <Image
-          className="cursor-pointer block md:hidden"
-          src={Menu}
-          alt="Menu"
-        />
+        <HeaderRightSection />
       </div>
     </header>
   );
