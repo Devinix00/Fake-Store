@@ -11,7 +11,17 @@ function Header() {
           Fake store
         </Link>
 
-        <Image className="cursor-pointer" src={Menu} alt="Menu" />
+        <Link
+          href="/sign-in"
+          className="text-white hidden md:block hover:underline"
+        >
+          Sign In
+        </Link>
+        <Image
+          className="cursor-pointer block md:hidden"
+          src={Menu}
+          alt="Menu"
+        />
       </div>
     </header>
   );

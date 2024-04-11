@@ -1,4 +1,4 @@
-async function getProducts(id: number) {
+async function getProduct(id: number) {
   const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
     method: "GET",
   });
@@ -7,4 +7,4 @@ async function getProducts(id: number) {
   return { data, response };
 }
 
-export default getProducts;
+export default getProduct;
