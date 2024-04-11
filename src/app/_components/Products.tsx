@@ -29,7 +29,7 @@ function Posts() {
           />
           <section className="flex flex-col gap-2 w-[100%]">
             <Link
-              href="/"
+              href={`/detail/${product.id}`}
               className="text-lg md:text-2xl font-bold hover:underline w-fit"
             >
               {product.title}
