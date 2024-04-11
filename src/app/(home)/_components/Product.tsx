@@ -11,16 +11,6 @@ interface ProductProps {
   product: Product;
 }
 
-const initialAnimate = (delay = 0, dir?: "x" | "y") => {
-  const animation = dir ? { [dir]: -20, opacity: 0 } : { opacity: 0 };
-
-  return {
-    initial: animation,
-    animate: dir ? { [dir]: 0, opacity: 1 } : { opacity: 1 },
-    transition: { type: "just", delay: delay },
-  };
-};
-
 function Product({ product }: ProductProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -28,9 +18,10 @@ function Product({ product }: ProductProps) {
     margin: "0px 0px -50% 0px",
   });
 
-  const animationProps = (delay: number, dir?: "x" | "y") => ({
-    ...initialAnimate(delay, dir),
-    animate: isInView ? (dir ? { [dir]: 0, opacity: 1 } : { opacity: 1 }) : {},
+  const animationProps = (delay = 0) => ({
+    initial: { opacity: 0 },
+    animate: isInView && { opacity: 1 },
+    transition: { type: "just", delay: delay },
   });
 
   return (
@@ -51,18 +42,18 @@ function Product({ product }: ProductProps) {
           <FramerLink
             href={`/detail/${product.id}`}
             className="text-lg md:text-2xl font-bold hover:underline w-fit"
-            {...animationProps(0.3, "y")}
+            {...animationProps(0.3)}
           >
             {product.title}
           </FramerLink>
           <motion.p
-            {...animationProps(0.6, "y")}
+            {...animationProps(0.6)}
             className="text-md md:text-xl font-medium"
           >
             {product.category}
           </motion.p>
           <motion.section
-            {...animationProps(0.9, "y")}
+            {...animationProps(0.9)}
             className="flex gap-2 items-center"
           >
             <p className="text-md md:text-xl font-extrabold">
