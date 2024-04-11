@@ -15,8 +15,6 @@ function IndividualProduct({ productId }: IndividualProductProps) {
     queryFn: () => getIndividualProducts(Number(productId)),
   });
 
-  console.log(data?.data);
-
   const product: Product = data?.data;
 
   return (

@@ -4,13 +4,7 @@ import React, { Suspense } from "react";
 
 function Detail({ params }: { params: { productId: string } }) {
   return (
-    <Suspense
-      fallback={
-        <div className="w-[100vw] h-[100vh] flex justify-center items-center">
-          <Loading />
-        </div>
-      }
-    >
+    <Suspense fallback={<Loading />}>
       <IndividualProduct productId={params.productId} />
     </Suspense>
   );
