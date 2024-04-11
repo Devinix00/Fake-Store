@@ -1,7 +1,11 @@
 "use client";
 
+import signIn from "@/app/_api/signInApi";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import SignInLoading from "./SignInLoading";
 
 type Inputs = {
   username: string;
@@ -9,15 +13,21 @@ type Inputs = {
 };
 
 function SignInForm() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const router = useRouter();
+  const { register, handleSubmit } = useForm<Inputs>();
+  const signInMutation = useMutation({
+    mutationFn: ({ username, password }: Inputs) => signIn(username, password),
+    onSuccess: () => {
+      router.push("/");
+    },
+  });
 
-  console.log(watch("password", "password"));
+  const isPending = signInMutation.isPending;
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    signInMutation.mutate(data);
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-80">
       <section className="flex flex-col gap-4">
@@ -35,9 +45,9 @@ function SignInForm() {
 
       <button
         type="submit"
-        className="w-[100%] bg-blue text-white py-4 rounded-lg mt-4"
+        className="w-[100%] h-12 bg-blue text-white rounded-lg mt-4"
       >
-        Sign In
+        {isPending ? <SignInLoading /> : <p>Sign In</p>}
       </button>
     </form>
   );
