@@ -45,7 +45,7 @@ function Product({ product }: ProductProps) {
           height={250}
           src={product.image}
           alt={product.title}
-          {...animationProps(0, "x")}
+          {...animationProps(0)}
         />
         <section className="flex flex-col gap-2 w-[100%]">
           <FramerLink
