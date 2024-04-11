@@ -12,21 +12,22 @@ function HeaderRightSection() {
   return (
     <React.Fragment>
       {isSignedIn ? (
-        <button
-          onClick={() => setIsSignedIn(false)}
-          className="text-white hidden md:block hover:underline"
-        >
-          Sign Out
-        </button>
+        <section className="flex gap-6">
+          <Link href="/cart" className="text-white hover:underline">
+            Cart
+          </Link>
+          <button
+            onClick={() => setIsSignedIn(false)}
+            className="text-white hover:underline"
+          >
+            Sign Out
+          </button>
+        </section>
       ) : (
-        <Link
-          href="/sign-in"
-          className="text-white hidden md:block hover:underline"
-        >
+        <Link href="/sign-in" className="text-white hover:underline">
           Sign In
         </Link>
       )}
-      <Image className="cursor-pointer block md:hidden" src={Menu} alt="Menu" />
     </React.Fragment>
   );
 }
