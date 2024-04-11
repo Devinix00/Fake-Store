@@ -1,11 +1,9 @@
-import Post from "./_components/Post";
-import Posts from "./_components/Posts";
+import Products from "./_components/Products";
 
 export default function Home() {
   return (
     <>
-      <Posts />
-      <Post />
+      <Products />
     </>
   );
 }

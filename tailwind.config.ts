@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         black: "#000000cc",
+        red: "#FF005C",
         "default-text": "#000000cc",
       },
       backgroundImage: {
