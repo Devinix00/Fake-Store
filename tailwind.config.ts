@@ -8,6 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        spin: {
+          "0%": {
+            transform: "rotate(0deg) scale(1)",
+          },
+          "50%": {
+            transform: "rotate(180deg) scale(1.25)",
+          },
+          "100%": {
+            transform: "rotate(360deg) scale(1)",
+          },
+        },
+      },
+      animation: {
+        spin: "spin 0.55s linear infinite",
+      },
+
       colors: {
         black: "#000000cc",
         red: "#FF005C",
