@@ -1,7 +1,7 @@
 import { dehydrate, Hydrate } from "@tanstack/react-query";
 import getQueryClient from "../getQueryClient";
-import Posts from "../_components/Products";
-import getProducts from "@/app/_api/getProducts";
+import Products from "../_components/Products";
+import { getProducts } from "@/app/_api/getProducts";
 import { queryKeys } from "./queryKeys";
 
 async function HydratedData() {
@@ -17,7 +17,7 @@ async function HydratedData() {
 
   return (
     <Hydrate state={dehydratedState}>
-      <Posts />
+      <Products />
     </Hydrate>
   );
 }

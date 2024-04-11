@@ -1,6 +1,6 @@
 "use client";
 
-import getIndividualProducts from "@/app/_api/getIndividualProducts";
+import getIndividualProduct from "@/app/_api/getIndividualProduct";
 import { queryKeys } from "@/app/_react-query/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -12,7 +12,7 @@ interface IndividualProductProps {
 function IndividualProduct({ productId }: IndividualProductProps) {
   const { data } = useQuery({
     queryKey: queryKeys.individualProduct(Number(productId)),
-    queryFn: () => getIndividualProducts(Number(productId)),
+    queryFn: () => getIndividualProduct(Number(productId)),
   });
 
   const product: Product = data?.data;
