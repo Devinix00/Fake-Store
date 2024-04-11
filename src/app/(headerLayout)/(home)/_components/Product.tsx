@@ -69,6 +69,12 @@ function Product({ product }: ProductProps) {
           >
             {product.description}
           </motion.p>
+          <motion.button
+            {...animationProps(1.5)}
+            className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
+          >
+            Cart!
+          </motion.button>
         </section>
       </li>
     </div>
