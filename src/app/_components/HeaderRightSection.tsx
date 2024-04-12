@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { Menu } from "../../../public/images";
 import React from "react";
 import useIsSignedIn from "../_stores/useIsSignedIn";
 
@@ -13,8 +11,8 @@ function HeaderRightSection() {
     <React.Fragment>
       {isSignedIn ? (
         <section className="flex gap-6">
-          <Link href="/cart" className="text-white hover:underline">
-            Cart
+          <Link href="/carts" className="text-white hover:underline">
+            Carts
           </Link>
           <button
             onClick={() => setIsSignedIn(false)}
