@@ -36,13 +36,18 @@ function SignInForm() {
       <section className="flex flex-col gap-4">
         <input
           {...(register("username"),
-          { required: true, placeholder: "username", type: "text" })}
-          className="p-2 rounded-md"
+          {
+            required: true,
+            placeholder: "username",
+            type: "text",
+            autoFocus: true,
+          })}
+          className="p-2 rounded-md outline-none"
         />
         <input
           {...(register("password"),
           { required: true, placeholder: "password", type: "password" })}
-          className="p-2 rounded-md"
+          className="p-2 rounded-md outline-none"
         />
       </section>
 
