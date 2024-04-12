@@ -19,7 +19,7 @@ function Posts() {
       {products?.map((product) => (
         <Product product={product} key={product.id} />
       ))}
-      <ToastContainer position={"top-right"} />
+      <ToastContainer position="top-center" />
     </ul>
   );
 }

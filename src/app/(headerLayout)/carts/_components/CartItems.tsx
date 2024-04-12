@@ -28,7 +28,7 @@ function CartItems() {
         <CartItem cartItem={cartItem} key={cartItem.id} />
       ))}
 
-      <ToastContainer position={"top-right"} />
+      <ToastContainer position="top-center" />
 
       {productIds.length === 0 && <NoCart />}
     </ul>

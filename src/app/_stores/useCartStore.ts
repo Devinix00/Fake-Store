@@ -16,7 +16,7 @@ const useCartStore = create(
       setProductIds: (productId: number) =>
         set((state: { productIds: number[] }) => {
           if (!state.productIds.includes(productId)) {
-            toast.success("Cart");
+            toast.success("Added to cart");
 
             return { productIds: [...state.productIds, productId] };
           }
