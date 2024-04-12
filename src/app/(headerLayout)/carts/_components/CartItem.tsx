@@ -1,3 +1,4 @@
+import useCart from "@/app/hooks/useCart";
 import Image from "next/image";
 import React from "react";
 
@@ -6,6 +7,7 @@ interface CartItemProps {
 }
 
 function CartItem({ cartItem }: CartItemProps) {
+  const { handleRemoveCart } = useCart();
   return (
     <li className="border-b-[1px] pb-10 flex gap-8">
       <Image
@@ -24,7 +26,10 @@ function CartItem({ cartItem }: CartItemProps) {
           <p className="font-semibold text-red">{cartItem.rating.rate}%</p>
         </section>
 
-        <button className="w-20 h-8 mt-2 bg-red text-white rounded-lg text-sm">
+        <button
+          onClick={() => handleRemoveCart(cartItem.id)}
+          className="w-20 h-8 mt-2 bg-red text-white rounded-lg text-sm"
+        >
           Remove
         </button>
       </section>

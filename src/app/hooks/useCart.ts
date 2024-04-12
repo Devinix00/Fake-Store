@@ -2,7 +2,7 @@ import useCartStore from "../_stores/useCartStore";
 import useIsAuthed from "../_stores/useIsAuthed";
 
 function useCart() {
-  const { setProductIds, setClearEveryCart } = useCartStore();
+  const { setProductIds, setClearEveryCart, setRemoveCart } = useCartStore();
   const clearEveryCart = useCartStore.persist.clearStorage;
 
   const { toSignInPage } = useIsAuthed();
@@ -16,7 +16,11 @@ function useCart() {
     clearEveryCart();
   };
 
-  return { handleAddCart, handleClearEveryCart };
+  const handleRemoveCart = (productId: number) => {
+    setRemoveCart(productId);
+  };
+
+  return { handleAddCart, handleClearEveryCart, handleRemoveCart };
 }
 
 export default useCart;

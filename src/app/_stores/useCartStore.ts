@@ -5,6 +5,7 @@ interface UseCartStoreReturn {
   productIds: number[];
   setProductIds: (productId: number) => void;
   setClearEveryCart: () => void;
+  setRemoveCart: (productId: number) => void;
 }
 
 const useCartStore = create(
@@ -20,6 +21,13 @@ const useCartStore = create(
           return {};
         }),
       setClearEveryCart: () => set(() => ({ productIds: [] })),
+      setRemoveCart: (productId: number) =>
+        set((state: { productIds: number[] }) => {
+          const filteredProductIds = state.productIds.filter(
+            (id) => id !== productId
+          );
+          return { productIds: filteredProductIds };
+        }),
     }),
     {
       name: "cart-storage",
