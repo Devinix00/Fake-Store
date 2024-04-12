@@ -6,6 +6,7 @@ import useCartStore from "@/app/_stores/useCartStore";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
+import NoCart from "./NoCart";
 
 function CartItems() {
   const { productIds } = useCartStore();
@@ -25,6 +26,8 @@ function CartItems() {
       {cartItems?.map((cartItem) => (
         <CartItem cartItem={cartItem} key={cartItem.id} />
       ))}
+
+      {productIds.length === 0 && <NoCart />}
     </ul>
   );
 }
