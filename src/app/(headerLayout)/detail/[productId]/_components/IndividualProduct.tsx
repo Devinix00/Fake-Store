@@ -3,6 +3,7 @@
 import getIndividualProduct from "@/app/_api/getIndividualProduct";
 import { queryKeys } from "@/app/_react-query/queryKeys";
 import useCartStore from "@/app/_stores/useCartStore";
+import useAddCart from "@/app/hooks/useAddCart";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
@@ -11,6 +12,7 @@ interface IndividualProductProps {
 }
 
 function IndividualProduct({ productId }: IndividualProductProps) {
+  const { handleAddCart } = useAddCart();
   const { setProductIds } = useCartStore();
   const { data } = useQuery({
     queryKey: queryKeys.individualProduct(Number(productId)),
@@ -39,7 +41,7 @@ function IndividualProduct({ productId }: IndividualProductProps) {
           {product.description}
         </p>
         <button
-          onClick={() => setProductIds(product.id)}
+          onClick={() => handleAddCart(product.id)}
           className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
         >
           Cart!

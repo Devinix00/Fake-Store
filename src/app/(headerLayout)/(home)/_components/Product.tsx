@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "framer-motion";
-import useCartStore from "@/app/_stores/useCartStore";
+import useAddCart from "@/app/hooks/useAddCart";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -13,7 +13,7 @@ interface ProductProps {
 }
 
 function Product({ product }: ProductProps) {
-  const { setProductIds } = useCartStore();
+  const { handleAddCart } = useAddCart();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
@@ -73,7 +73,7 @@ function Product({ product }: ProductProps) {
           </motion.p>
           <motion.button
             {...animationProps(1.5)}
-            onClick={() => setProductIds(product.id)}
+            onClick={() => handleAddCart(product.id)}
             className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
           >
             Cart!
