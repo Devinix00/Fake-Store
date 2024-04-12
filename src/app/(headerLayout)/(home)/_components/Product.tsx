@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "framer-motion";
+import useAddCart from "@/app/_hooks/useAddCart";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -17,6 +18,8 @@ function Product({ product }: ProductProps) {
     once: true,
     margin: "0px 0px -50% 0px",
   });
+
+  const { handleAddCart } = useAddCart();
 
   const animationProps = (delay = 0) => ({
     initial: { opacity: 0 },
@@ -71,6 +74,11 @@ function Product({ product }: ProductProps) {
           </motion.p>
           <motion.button
             {...animationProps(1.5)}
+            onClick={() => {
+              handleAddCart({
+                products: { productId: product.id, quantity: 1 },
+              });
+            }}
             className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
           >
             Cart!
