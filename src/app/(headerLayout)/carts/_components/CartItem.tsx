@@ -8,6 +8,7 @@ interface CartItemProps {
 
 function CartItem({ cartItem }: CartItemProps) {
   const { handleRemoveCart } = useCart();
+
   return (
     <li className="border-b-[1px] pb-10 flex gap-8">
       <Image

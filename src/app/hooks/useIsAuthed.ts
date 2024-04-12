@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import useIsSignedIn from "./useIsSignedIn";
+import useIsSignedIn from "../_stores/useIsSignedIn";
 
 function useIsAuthed() {
   const { isSignedIn } = useIsSignedIn();

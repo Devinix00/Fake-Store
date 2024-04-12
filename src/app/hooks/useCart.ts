@@ -1,5 +1,5 @@
 import useCartStore from "../_stores/useCartStore";
-import useIsAuthed from "../_stores/useIsAuthed";
+import useIsAuthed from "./useIsAuthed";
 
 function useCart() {
   const { setProductIds, setClearEveryCart, setRemoveCart } = useCartStore();
