@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "framer-motion";
 import useCart from "@/app/_hooks/useCart";
+import useCartStore from "@/app/_stores/useCartStore";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -13,12 +14,15 @@ interface ProductProps {
 }
 
 function Product({ product }: ProductProps) {
+  const { productIds } = useCartStore();
   const { handleAddCart } = useCart();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "0px 0px -50% 0px",
   });
+
+  const isAddedCart = productIds.includes(product.id);
 
   const animationProps = (delay = 0) => ({
     initial: { opacity: 0 },
@@ -73,10 +77,13 @@ function Product({ product }: ProductProps) {
           </motion.p>
           <motion.button
             {...animationProps(1.5)}
+            disabled={isAddedCart}
             onClick={() => handleAddCart(product.id)}
-            className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
+            className={`w-[100%] md:w-40 h-12 rounded-xl text-white text-md md:text-lg font-semibold mt-5 ${
+              isAddedCart ? "bg-gray-300" : "bg-red"
+            }`}
           >
-            Cart!
+            {isAddedCart ? "Added to Cart" : "Cart"}
           </motion.button>
         </section>
       </li>

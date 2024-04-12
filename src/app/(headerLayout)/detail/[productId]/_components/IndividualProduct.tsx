@@ -5,12 +5,14 @@ import { queryKeys } from "@/app/_react-query/queryKeys";
 import useCart from "@/app/_hooks/useCart";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import useCartStore from "@/app/_stores/useCartStore";
 
 interface IndividualProductProps {
   productId: string;
 }
 
 function IndividualProduct({ productId }: IndividualProductProps) {
+  const { productIds } = useCartStore();
   const { handleAddCart } = useCart();
   const { data } = useQuery({
     queryKey: queryKeys.individualProduct(Number(productId)),
@@ -18,6 +20,7 @@ function IndividualProduct({ productId }: IndividualProductProps) {
   });
 
   const product: Product = data?.data;
+  const isAddedCart = productIds.includes(product.id);
 
   return (
     <div className="w-[90%] xl:w-[1240px] m-auto min-h-[100vh] flex flex-col gap-20 items-center justify-center mt-16">
@@ -40,9 +43,12 @@ function IndividualProduct({ productId }: IndividualProductProps) {
         </p>
         <button
           onClick={() => handleAddCart(product.id)}
-          className="w-[100%] md:w-40 h-12 rounded-xl bg-red text-white text-md md:text-lg font-semibold mt-5"
+          disabled={isAddedCart}
+          className={`w-[100%] md:w-40 h-12 rounded-xl ${
+            isAddedCart ? "bg-gray-300" : "bg-red"
+          } text-white text-md md:text-lg font-semibold mt-5`}
         >
-          Cart!
+          {isAddedCart ? "Added to Cart" : "Cart"}
         </button>
       </section>
     </div>

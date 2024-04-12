@@ -15,7 +15,7 @@ function useCart() {
   const handleClearEveryCart = () => {
     setClearEveryCart();
     clearEveryCart();
-    toast.info("All products removed!");
+    toast.info("All products have been removed!");
   };
 
   const handleRemoveCart = (productId: number) => {
