@@ -4,6 +4,7 @@ import getPosts from "@/app/_api/getProducts";
 import { queryKeys } from "@/app/_react-query/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 import Product from "./Product";
+import { ToastContainer } from "react-toastify";
 
 function Posts() {
   const { data } = useQuery({
@@ -18,6 +19,7 @@ function Posts() {
       {products?.map((product) => (
         <Product product={product} key={product.id} />
       ))}
+      <ToastContainer position={"top-right"} />
     </ul>
   );
 }

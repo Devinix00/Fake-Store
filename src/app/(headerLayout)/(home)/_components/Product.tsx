@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "framer-motion";
-import useCart from "@/app/hooks/useCart";
+import useCart from "@/app/_hooks/useCart";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);

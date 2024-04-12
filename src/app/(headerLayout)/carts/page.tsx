@@ -1,3 +1,5 @@
+"use client";
+
 import React, { Suspense } from "react";
 import CartItems from "./_components/CartItems";
 import NoSsr from "@/app/_components/NoSsr";

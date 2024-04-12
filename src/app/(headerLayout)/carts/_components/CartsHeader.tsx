@@ -1,7 +1,7 @@
 "use client";
 
 import useCartStore from "@/app/_stores/useCartStore";
-import useCart from "@/app/hooks/useCart";
+import useCart from "@/app/_hooks/useCart";
 import React from "react";
 
 function CartsHeader() {

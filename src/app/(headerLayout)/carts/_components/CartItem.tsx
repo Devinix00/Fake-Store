@@ -1,4 +1,4 @@
-import useCart from "@/app/hooks/useCart";
+import useCart from "@/app/_hooks/useCart";
 import Image from "next/image";
 import React from "react";
 

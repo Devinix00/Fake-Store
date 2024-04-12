@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
 import NoCart from "./NoCart";
+import { ToastContainer } from "react-toastify";
 
 function CartItems() {
   const { productIds } = useCartStore();
@@ -26,6 +27,8 @@ function CartItems() {
       {cartItems?.map((cartItem) => (
         <CartItem cartItem={cartItem} key={cartItem.id} />
       ))}
+
+      <ToastContainer position={"top-right"} />
 
       {productIds.length === 0 && <NoCart />}
     </ul>

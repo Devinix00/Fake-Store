@@ -2,7 +2,7 @@
 
 import getIndividualProduct from "@/app/_api/getIndividualProduct";
 import { queryKeys } from "@/app/_react-query/queryKeys";
-import useCart from "@/app/hooks/useCart";
+import useCart from "@/app/_hooks/useCart";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 

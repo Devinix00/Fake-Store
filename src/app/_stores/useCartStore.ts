@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -15,6 +16,8 @@ const useCartStore = create(
       setProductIds: (productId: number) =>
         set((state: { productIds: number[] }) => {
           if (!state.productIds.includes(productId)) {
+            toast.success("Cart");
+
             return { productIds: [...state.productIds, productId] };
           }
 
