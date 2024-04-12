@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useInView } from "framer-motion";
-import useAddCart from "@/app/hooks/useAddCart";
+import useCart from "@/app/hooks/useCart";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -13,7 +13,7 @@ interface ProductProps {
 }
 
 function Product({ product }: ProductProps) {
-  const { handleAddCart } = useAddCart();
+  const { handleAddCart } = useCart();
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,

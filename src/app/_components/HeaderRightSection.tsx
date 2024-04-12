@@ -3,8 +3,10 @@
 import Link from "next/link";
 import React from "react";
 import useIsSignedIn from "../_stores/useIsSignedIn";
+import { useRouter } from "next/navigation";
 
 function HeaderRightSection() {
+  const router = useRouter();
   const { isSignedIn, setIsSignedIn } = useIsSignedIn();
 
   return (
@@ -15,7 +17,10 @@ function HeaderRightSection() {
             Carts
           </Link>
           <button
-            onClick={() => setIsSignedIn(false)}
+            onClick={() => {
+              setIsSignedIn(false);
+              router.push("/");
+            }}
             className="text-white hover:underline"
           >
             Sign Out

@@ -4,6 +4,7 @@ import { createJSONStorage, persist } from "zustand/middleware";
 interface UseCartStoreReturn {
   productIds: number[];
   setProductIds: (productId: number) => void;
+  setClearEveryCart: () => void;
 }
 
 const useCartStore = create(
@@ -18,6 +19,7 @@ const useCartStore = create(
 
           return {};
         }),
+      setClearEveryCart: () => set(() => ({ productIds: [] })),
     }),
     {
       name: "cart-storage",

@@ -2,8 +2,7 @@
 
 import getIndividualProduct from "@/app/_api/getIndividualProduct";
 import { queryKeys } from "@/app/_react-query/queryKeys";
-import useCartStore from "@/app/_stores/useCartStore";
-import useAddCart from "@/app/hooks/useAddCart";
+import useCart from "@/app/hooks/useCart";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
@@ -12,8 +11,7 @@ interface IndividualProductProps {
 }
 
 function IndividualProduct({ productId }: IndividualProductProps) {
-  const { handleAddCart } = useAddCart();
-  const { setProductIds } = useCartStore();
+  const { handleAddCart } = useCart();
   const { data } = useQuery({
     queryKey: queryKeys.individualProduct(Number(productId)),
     queryFn: () => getIndividualProduct(Number(productId)),
