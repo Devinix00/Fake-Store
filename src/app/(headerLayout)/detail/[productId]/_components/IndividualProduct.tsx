@@ -6,6 +6,7 @@ import useCart from "@/app/_hooks/useCart";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import useCartStore from "@/app/_stores/useCartStore";
+import useIsSignedIn from "@/app/_stores/useIsSignedIn";
 
 interface IndividualProductProps {
   productId: string;
@@ -13,6 +14,7 @@ interface IndividualProductProps {
 
 function IndividualProduct({ productId }: IndividualProductProps) {
   const { productIds } = useCartStore();
+  const { isSignedIn } = useIsSignedIn();
   const { handleAddCart } = useCart();
   const { data } = useQuery({
     queryKey: queryKeys.individualProduct(Number(productId)),
@@ -43,12 +45,12 @@ function IndividualProduct({ productId }: IndividualProductProps) {
         </p>
         <button
           onClick={() => handleAddCart(product.id)}
-          disabled={isAddedCart}
+          disabled={isSignedIn && isAddedCart}
           className={`w-[100%] md:w-40 h-12 rounded-xl ${
-            isAddedCart ? "bg-gray-300" : "bg-red"
+            isSignedIn && isAddedCart ? "bg-gray-300" : "bg-red"
           } text-white text-md md:text-lg font-semibold mt-5`}
         >
-          {isAddedCart ? "Added to Cart" : "Cart"}
+          {isSignedIn && isAddedCart ? "Added to Cart" : "Cart"}
         </button>
       </section>
     </div>

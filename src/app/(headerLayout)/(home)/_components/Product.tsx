@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useInView } from "framer-motion";
 import useCart from "@/app/_hooks/useCart";
 import useCartStore from "@/app/_stores/useCartStore";
+import useIsSignedIn from "@/app/_stores/useIsSignedIn";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -15,6 +16,7 @@ interface ProductProps {
 
 function Product({ product }: ProductProps) {
   const { productIds } = useCartStore();
+  const { isSignedIn } = useIsSignedIn();
   const { handleAddCart } = useCart();
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -77,13 +79,13 @@ function Product({ product }: ProductProps) {
           </motion.p>
           <motion.button
             {...animationProps(1.5)}
-            disabled={isAddedCart}
+            disabled={isSignedIn && isAddedCart}
             onClick={() => handleAddCart(product.id)}
             className={`w-[100%] md:w-40 h-12 rounded-xl text-white text-md md:text-lg font-semibold mt-5 ${
-              isAddedCart ? "bg-gray-300" : "bg-red"
+              isSignedIn && isAddedCart ? "bg-gray-300" : "bg-red"
             }`}
           >
-            {isAddedCart ? "Added to Cart" : "Cart"}
+            {isSignedIn && isAddedCart ? "Added to Cart" : "Cart"}
           </motion.button>
         </section>
       </li>
