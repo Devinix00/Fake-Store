@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import useCartStore from "@/app/_stores/useCartStore";
 import useIsSignedIn from "@/app/_stores/useIsSignedIn";
+import { ToastContainer } from "react-toastify";
 
 interface IndividualProductProps {
   productId: string;
@@ -53,6 +54,7 @@ function IndividualProduct({ productId }: IndividualProductProps) {
           {isSignedIn && isAddedCart ? "Added to Cart" : "Cart"}
         </button>
       </section>
+      <ToastContainer position="top-center" />
     </div>
   );
 }
