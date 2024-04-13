@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
-import useIsSignedIn from "../_stores/useIsSignedIn";
+import useIsSignedInStore from "../_stores/useIsSignedInStore";
 
 function useToSignInPage() {
-  const { isSignedIn } = useIsSignedIn();
+  const { isSignedIn } = useIsSignedInStore();
   const router = useRouter();
 
   const toSignInPage = (): boolean => {

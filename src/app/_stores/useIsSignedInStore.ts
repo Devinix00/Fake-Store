@@ -6,7 +6,7 @@ interface UseIsSignedInReturn {
   setIsSignedIn: (authState: boolean) => void;
 }
 
-const useIsSignedIn = create(
+const useIsSignedInStore = create(
   persist<UseIsSignedInReturn>(
     (set, _get) => ({
       isSignedIn: false,
@@ -20,4 +20,4 @@ const useIsSignedIn = create(
   )
 );
 
-export default useIsSignedIn;
+export default useIsSignedInStore;

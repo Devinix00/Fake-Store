@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import React from "react";
-import useIsSignedIn from "../_stores/useIsSignedIn";
 import { useRouter } from "next/navigation";
+import useIsSignedInStore from "../_stores/useIsSignedInStore";
 
 function HeaderRightSection() {
   const router = useRouter();
-  const { isSignedIn, setIsSignedIn } = useIsSignedIn();
+  const { isSignedIn, setIsSignedIn } = useIsSignedInStore();
 
   return (
     <React.Fragment>

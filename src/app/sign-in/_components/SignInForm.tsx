@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import SignInLoading from "./SignInLoading";
-import useIsSignedIn from "@/app/_stores/useIsSignedIn";
+import useIsSignedInStore from "@/app/_stores/useIsSignedInStore";
 
 type Inputs = {
   username: string;
@@ -16,7 +16,7 @@ type Inputs = {
 function SignInForm() {
   const router = useRouter();
   const { register, handleSubmit } = useForm<Inputs>();
-  const { setIsSignedIn } = useIsSignedIn();
+  const { setIsSignedIn } = useIsSignedInStore();
   const signInMutation = useMutation({
     mutationFn: ({ username, password }: Inputs) => signIn(username, password),
     onSuccess: () => {

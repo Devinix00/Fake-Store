@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useInView } from "framer-motion";
 import useCart from "@/app/_hooks/useCart";
 import useCartStore from "@/app/_stores/useCartStore";
-import useIsSignedIn from "@/app/_stores/useIsSignedIn";
+import useIsSignedInStore from "@/app/_stores/useIsSignedInStore";
 
 const FramerImage = motion(Image);
 const FramerLink = motion(Link);
@@ -16,7 +16,7 @@ interface ProductProps {
 
 function Product({ product }: ProductProps) {
   const { productIds } = useCartStore();
-  const { isSignedIn } = useIsSignedIn();
+  const { isSignedIn } = useIsSignedInStore();
   const { handleAddCart } = useCart();
   const ref = useRef(null);
   const isInView = useInView(ref, {
