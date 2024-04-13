@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Fake Store (Shopping Mall Assignment)
 
-## Getting Started
+fake store api를 이용한 간단한 쇼핑몰 연습 프로젝트입니다. (작업기간: 2일)
 
-First, run the development server:
+배포된 url: https://fake-store-theta-nine.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+사용된 api 정보: https://fakestoreapi.com/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Next.Js (App-router)
+2. Typescript
+3. Tailwind CSS
+4. zustand, zustand-persist
+5. React-Query
+6. react-hook-form
+7. react-toastify
+8. framer-motion
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 기능
 
-## Learn More
+<ol>
+<li>
+로그인 <p>
 
-To learn more about Next.js, take a look at the following resources:
+fake store에서 로그인 시 허용되는 usename과 password 값이 있어 그 값을 서버로 전송하여 access token을 받았습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(유저가 input에 어떠한 값을 입력하더라도, 허용된 value들이 서버에 전송됩니다.)</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+</li>
 
-## Deploy on Vercel
+<li>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+모든 상품정보 조회
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p>React-Query의 ssr 설정으로 상품 데이터들을 prefetch 하였습니다.</p>
+</li>
+
+<li>
+
+장바구니
+
+<p>
+장바구니의 아이템들을 배열상태로 만들고, zustand-persist를 이용하여 localStorage에 전역 관리해주었습니다. 장바구니의 배열상태가 변경 될 때마다 컴포넌트에서 useEffect를 이용하여 refetch 하는 것으로 UI를 업데이트 해주고 있습니다.
+</p>
+</li>
+</ol>
+
+## home
+
+<img src="./public/images/home.png">
+
+## detail
+
+<img src="./public/images/detail.png">
+
+## sign-in
+
+<img src="./public/images/sign-in.png">
+
+## cart에 담았을 때
+
+<img src="./public/images/added-to-cart.png">
+
+## carts
+
+<img src="./public/images/carts.png">
+
+## cart 하나 삭제
+
+<img src="./public/images/cart-removed.png">
+
+## cart 전부 삭제
+
+<img src="./public/images/no-cart.png">
